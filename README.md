@@ -14,7 +14,8 @@ Nele iremos colocar a Access Key :3 / Secret Key :6 / Senha de acesso no Rancher
 
 Após preenchermos esses requisitos iremos rodar o código com os seguintes comando dentro da pasta /aws
 
-```terraform init
+```
+terraform init
 terraform apply --auto-approve
 ```
 
@@ -33,12 +34,14 @@ Iremos acessar a pasta de deployments dentro do cluster
 
 Iremos acessar o cluster pelo terminal CLI e criar um namespace com o seguinte comando
 
-```kubectl create namespace app-node
+```
+kubectl create namespace app-node
 ```
 
 Após isso temos duas opções para realizar o deploy, sendo elas, por CLI acessando o cluster no canto superior direito, ou importando o arquivo YAML(deployment.yaml), também no canto superior direito. Segue a imagem com os dois métodos.
 *Lembrando que por CLI é necessário aplicar o seguinte comando:
-```kubectl apply -f - <<EOF
+```
+kubectl apply -f - <<EOF
 {arquivo-yaml}
 EOF
 ```
