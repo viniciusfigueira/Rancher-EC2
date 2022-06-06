@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-site-deployment
+  namespace: app-node
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-site
+  template:
+    metadata:
+      labels:
+        app: app-site
+    spec:
+      containers:
+        - name: app-site
+          image: viniciusfigueira/frontimpulso:1.0
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+          - containerPort: 80
+          imagePullPolicy: Always
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-site-service
+  namespace: app-node
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+    name: tcp
+  selector:
+    app: app-site
+---
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: app-site-ingress
+  namespace: app-node
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: app-site-service
+          servicePort: 80
