@@ -9,7 +9,7 @@
 Após realizar o comando "git clone https://github.com/viniciusfigueira/Rancher-EC2-Terraform.git".
 Será necessário realizar a inclusão das suas credenciais AWS para poder executar o código Terraform.
 O arquivo que deve ser alterado é o "terraform.tvars" dentro da pasta "AWS". 
-Nele iremos colocar a Access Key :3 / Secret Key :6 / Senha de acesso no Rancher :9 /Aws_Region :15
+Nele iremos colocar a Access Key :3 / Secret Key :6 / Senha de acesso no Rancher (Minimo de 12 caracteres):9 /Aws_Region :15
 * Onde os ":x" significa a linha para alteração
 
 Após preenchermos esses requisitos iremos rodar o código com os seguintes comando dentro da pasta /aws
