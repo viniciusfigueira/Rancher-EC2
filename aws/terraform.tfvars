@@ -27,7 +27,7 @@ docker_version = "19.03"
 instance_type = "t3a.medium"
 
 # Prefix added to names of all resources
-prefix = ""
+prefix = "teste"
 
 # Kubernetes version to use for Rancher server cluster
 rancher_kubernetes_version = "v1.21.11+k3s1"
